@@ -32,6 +32,10 @@
     text-align:center;
     color:#333;
 }
+.ui-table td.state .iconfont{
+    color:#666;font-size:18px;line-height:24px;
+}
+
 .ui-table td.des{font-size:12px;}
 
 .ui-table td > code{

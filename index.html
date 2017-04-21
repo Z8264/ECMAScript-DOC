@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/iconfont/iconfont.css" type="text/css">
     <link rel="stylesheet" href="css/prism.css" type="text/css">
     <link rel="stylesheet" href="css/table.css" type="text/css">
     <style>
@@ -18,18 +19,17 @@
         background:#f1f1f1;
         box-shadow:1px 0 1px rgba(0,0,0,.4);
     }
-    nav h1{
+    nav strong{
+        display:block;
+        margin-bottom:10px;
         border-bottom:1px solid #fff;
     }
-    nav h1 > a{
+    nav strong > a{
         display:block;
         display:block;
         padding:0 10px;
         line-height:80px;font-size:20px;text-align: center;font-weight:normal;color:#333;
         border-bottom:1px solid #ddd;
-    }
-    nav h1 > a.on{
-        color:#08c;
     }
     nav > a{
         display:block;width:100%;
@@ -51,25 +51,54 @@
     .main{
         position:relative;
         padding:20px 50px 50px 100px;
+        opacity: 0;
+        
     }
+    .main-show{
+        opacity: 1;
+        transition:all ease-out .3s;
+    }
+
     .home{
-        padding:50px 0;
+        padding:50px;
     }
-    .home strong{
+    .home hgroup{padding:50px 0;}
+    .home hgroup h1{
         display:block;
-        font-size:32px;line-height:50px;
+        font-size:40px;line-height:50px;
         text-align:center;
     }
-    .home span{
+    .home hgroup span{
         display:block;
-        font-size:20px;line-height:30px;
+        font-size:20px;line-height:40px;
         text-align:center;
     }
+    .home h2{
+        font-size:16px;
+        text-align:center;
+        line-height:40px;
+    }
+    .home ul{
+        width:400px;margin:0 auto;
+    }
+    .home ul li{
+        float:left;
+        width:33.333%;
+        display:block;
+        line-height:30px;font-size:14px;
+        text-align:center;
+    }
+    .home ul li .iconfont{
+        position:relative;top:3px;
+        padding:0 5px;
+        font-size:24px;line-height:30px;
+    }
+
     </style>
 </head>
 <body>
     <nav>
-        <h1><a href="javascript:void(0)">ECMAScript</a></h1>
+        <strong><a href="javascript:void(0)">ECMAScript</a></strong>
         <a href="javascript:void(0)" data-file="Object">Object</a>
         <a href="javascript:void(0)" data-file="Boolean">Boolean</a>
         <a href="javascript:void(0)" data-file="Number">Number</a>
@@ -101,9 +130,9 @@
             </tr>
             {{each value.list el i}}
             <tr data-group={{el[0]}}>
-                {{if el[3] == "non"}}<td class="state">&#9888;</td>
-                    {{else if el[3] == "obsolete"}}<td class="state">&#9762;</td>
-                    {{else if el[3] == "exp"}}<td class="state">&#65533;</td>
+                {{if el[3] == "non"}}<td class="state"><span class="iconfont">&#xe600;</span></td>
+                    {{else if el[3] == "obsolete"}}<td class="state"><span class="iconfont">&#xe670;</span></td>
+                    {{else if el[3] == "exp"}}<td class="state"><span class="iconfont">&#xe653;</span></td>
                     {{else}}<td class="state"></td>
                 {{/if}}
                 <td><code class="{{el[3]}} {{el[4]}}">{{el[1]}}</code></td>
@@ -122,8 +151,16 @@
 
 <script type="text/html" id="homeTemp">
     <div class="home">
-        <strong>ECMAScript</strong>
-        <span>简要文档</span>
+        <hgroup>
+            <h1>ECMAScript</h1>
+            <span>简要文档 v1.01</span>
+        </hgroup>
+        <h2>-- 符号说明 --</h2>
+        <ul>
+            <li><span class="iconfont">&#xe670;</span>废弃的</li>
+            <li><span class="iconfont">&#xe600;</span>非标准的</li>
+            <li><span class="iconfont">&#xe653;</span>草案/实验中</li>
+        </ul>
     </div>
 </script>
 <script type="text/javascript" src="js/jquery2.1.4.js"></script>
@@ -145,7 +182,7 @@
         sectionIndex();
     }
 
-    $('nav').on('click','h1 > a',function(){
+    $('nav').on('click','strong > a',function(){
         $('nav a').removeClass('on');
         sectionIndex();
     });
@@ -189,16 +226,19 @@
                         if($tr.length){
                             var top = $tr.first().offset().top;
                             var bottom = $tr.last().offset().top;
-                            var height=bottom-top+$tr.height();
+                            var height=bottom-top+$tr.last().height();
                             var $group=$('<div class="ui-group"><span>'+data.group[key]+'</span></div>');
                             $group.css({'top':top+1,'height':height+1});
-                            $el.append($group);
+
+                            var $main=$el.children('.main')
+                            $main.append($group);
+                            $main.addClass('main-show');
                         }
                     }
                 }
             },
             error:function(){
-                $el.html('<p>文件读取错误</p>');
+                $el.html('<p style="text-align:center;color:red;line-height:100px;">文件读取错误</p>');
             }
         });
     }
