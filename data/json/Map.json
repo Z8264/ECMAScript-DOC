@@ -1,0 +1,33 @@
+{	
+	"table":[
+		{
+			"caption":"Properties",
+			"name":"Map",
+			"list":[
+				["0","prototype","","","es6","no",""],
+				["0","prototype.size","","","es6","no",""],
+				["0","prototype[@@toStringTag]","","","es6","no",""]
+			]
+		},
+		{
+			"caption":"Prototype Methods",
+			"name":"Map.prototype",
+			"list":[
+				["1","clear()","","","es6","no",""],
+				["1","delete()","","","es6","no",""],
+				["1","entries()","","","es6","no",""],
+				["1","forEach()","","","es6","no",""],
+				["1","get()","","","es6","no",""],
+				["1","has()","","","es6","no",""],
+				["1","keys()","","","es6","no",""],
+				["1","set()","","","es6","no",""],
+				["1","values()","","","es6","no",""],
+				["1","[@@iterator]","","","es6","no",""]
+			]
+		}
+	],
+	"group":{
+		"0":"属性",
+		"1":"方法"
+	}
+}

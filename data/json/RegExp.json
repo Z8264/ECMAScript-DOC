@@ -1,0 +1,39 @@
+{	
+	"table":[
+		{
+			"caption":"Properties",
+			"name":"RegExp",
+			"list":[
+				["0","$1-$9","","non","","",""],
+				["0","input($_)","","non","","",""],
+				["0","lastMatch($&)","","non","","",""],
+				["0","lastParen($+)","","non","","",""],
+				["0","leftContext($`)","","non","","",""],
+				["0","rightContent($')","","non","","",""],
+				["0","prototype","","","","",""],
+				["0","prototype.global","","","","",""],
+				["0","prototype.ignoreCase","","","","",""],
+				["0","prototype.multiline","","","","",""],
+				["0","prototype.source","","","","",""],
+				["0","prototype.flags","","","es6","no",""],
+				["0","prototype.sticky","","","es6","no",""],
+				["0","prototype.unicode","","","es6","no",""]
+			]
+		},
+		{
+			"caption":"Prototype Methods",
+			"name":"RegExp.prototype",
+			"list":[
+				["1","compile()","","obsolete","","",""],
+				["1","exec()","","","","",""],
+				["1","test()","","","","",""],
+				["1","toString()","","","","",""],
+				["1","toSource()","","non","","",""]
+			]
+		}
+	],
+	"group":{
+		"0":"属性",
+		"1":"方法"	
+	}
+}

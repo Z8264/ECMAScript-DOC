@@ -1,0 +1,50 @@
+{	
+	"table":[
+		{
+			"caption":"Properties",
+			"name":"Number",
+			"list":[
+				["0","NaN","非数字","","","",""],
+				["0","MAX_VALUE","所能表示的最大数值","","","",""],
+				["0","MIN_VALUE","所能表示的最小数值","","","",""],
+				["0","NEGATIVE_INFINITY","负无穷大","","","",""],
+				["0","POSITIVE_INFINITY","正无穷大","","","",""],
+				["0","EPSILON","1和大于1的最小值的差值","","es6","no",""],
+				["0","MAX_SAFE_INTEGER","最大的安全整数","","es6","no",""],
+				["0","MIN_SAFE_INTEGER","最小的安全整数","","es6","no",""],
+				["0","prototype","","","","",""]
+
+			]
+		},
+		{
+			"caption":"Methods",
+			"name":"Number",
+			"list":[
+				["1","isFinite()","","","es6","no",""],
+				["1","isInteger()","","","es6","no",""],
+				["1","isNan()","","","es6","no",""],
+				["1","isSafeInteger()","","","es6","no",""],
+				["1","parseFloat()","","","es6","no",""],
+				["1","parseInt()","","","es6","no",""]
+			]
+		},
+		{
+			"caption":"Prototype Methods",
+			"name":"Number.prototype",
+			"list":[
+				["2","toExponential()","指数","","","",""],
+				["2","toFixed()","指定精度，小数","","","",""],
+				["2","toString()","","","","",""],
+				["2","toLocaleString()","","","","",""],
+				["2","toPrecision()","指定精度，返回字符串","","","",""],
+				["2","valueOf()","","","","",""],
+				["2","toSource","","non","es6","no",""]
+			]
+		}
+	],
+	"group":{
+		"0":"属性",
+		"1":"方法",
+		"2":"转换"
+	}
+}

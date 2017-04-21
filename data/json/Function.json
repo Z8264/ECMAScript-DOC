@@ -1,0 +1,33 @@
+{	
+	"table":[
+		{
+			"caption":"Properties",
+			"name":"Function",
+			"list":[
+				["0","length","","","","",""],
+				["0","prototype","","","","",""],
+				["0","arguments","","obsolete","","",""],
+				["0","arity","","obsolete","","",""],
+				["0","caller","","non","","",""],
+				["0","displayName","","non","","",""],
+				["0","name","","non","","",""]
+			]
+		},
+		{
+			"caption":"Prototype Methods",
+			"name":"Function.prototype",
+			"list":[
+				["1","apply()","","","","",""],
+				["1","call()","","","","",""],
+				["1","toString()","","","","",""],
+				["1","bind()","","","","9",""],
+				["1","isGenerator","","non","","",""],
+				["1","toSource()","","non","","",""]
+			]
+		}
+	],
+	"group":{
+		"0":"属性",
+		"1":"方法"
+	}
+}

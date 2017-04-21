@@ -1,0 +1,34 @@
+{	
+	"table":[
+		{
+			"caption":"Properties",
+			"name":"Promise",
+			"list":[
+				["0","prototype","","","es6","no",""]
+			]
+		},
+		{
+			"caption":"Methods",
+			"name":"Promise",
+			"list":[
+				["1","all()","迭代，调用","","es6","no",""],
+				["1","race()","迭代，调用","","es6","no",""],
+				["1","reject()","调用Promise的rejected句柄","","es6","no",""],
+				["1","resolve()","用成功值value完成一个Promise对象","","es6","no",""]
+			]
+		},
+		{
+			"caption":"Prototype Methods",
+			"name":"Promise.prototype",
+			"list":[
+				["2","then()","","","es6","no",""],
+				["2","catch()","","","es6","no",""]
+			]
+		}
+	],
+	"group":{
+		"0":"属性",
+		"1":"方法",
+		"2":"方法"
+	}
+}

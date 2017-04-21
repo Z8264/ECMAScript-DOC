@@ -1,0 +1,24 @@
+{	
+	"table":[
+		{
+			"caption":"Properties",
+			"name":"Promise",
+			"list":[
+				["0","prototype","","","","",""]
+			]
+		},
+		{
+			"caption":"Prototype Methods",
+			"name":"Promise.prototype",
+			"list":[
+				["1","toSource()","","non","","",""],
+				["1","toString()","","","","",""],
+				["1","valueOf()","","","","",""]
+			]
+		}
+	],
+	"group":{
+		"0":"属性",
+		"1":"方法"
+	}
+}

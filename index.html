@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> uiCheck </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/prism.css" type="text/css">
+    <link rel="stylesheet" href="css/table.css" type="text/css">
+    <style>
+    html{height:100%;}
+    body{font-family:"consolas","微软雅黑";background:#333;height:100%;}
+
+
+    nav{position:fixed;top:0;left:0;bottom:0;z-index:50;
+        width:150px;
+        background:#f1f1f1;
+        box-shadow:1px 0 1px rgba(0,0,0,.4);
+    }
+    nav h1{
+        border-bottom:1px solid #fff;
+    }
+    nav h1 > a{
+        display:block;
+        display:block;
+        padding:0 10px;
+        line-height:80px;font-size:20px;text-align: center;font-weight:normal;color:#333;
+        border-bottom:1px solid #ddd;
+    }
+    nav h1 > a.on{
+        color:#08c;
+    }
+    nav > a{
+        display:block;width:100%;
+        padding:0 20px;
+        line-height:32px;font-size:16px;color:#333;text-align:right;
+        transition:all ease-out .3s;
+    }
+    nav > a.es6:before{content:'*';margin-right:10px;font-size:12px;color:#08c;}
+    nav > a:hover{color:#f60;}
+    nav > a.on{
+        color:#08c;
+    }
+    section{position:relative;
+        width:800px;margin-left:150px;
+        min-height:100%;
+        float:left;box-shadow:1px 0 1px rgba(0,0,0,.3);
+        background:#fff;
+    }
+    .main{
+        position:relative;
+        padding:20px 50px 50px 100px;
+    }
+    .home{
+        padding:50px 0;
+    }
+    .home strong{
+        display:block;
+        font-size:32px;line-height:50px;
+        text-align:center;
+    }
+    .home span{
+        display:block;
+        font-size:20px;line-height:30px;
+        text-align:center;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1><a href="javascript:void(0)">ECMAScript</a></h1>
+        <a href="javascript:void(0)" data-file="Object">Object</a>
+        <a href="javascript:void(0)" data-file="Boolean">Boolean</a>
+        <a href="javascript:void(0)" data-file="Number">Number</a>
+        <a href="javascript:void(0)" data-file="String">String</a>
+        <a href="javascript:void(0)" data-file="Array">Array</a>
+        <a href="javascript:void(0)" data-file="Function">Function</a>
+        <a href="javascript:void(0)" data-file="JSON">JSON</a>
+        <a href="javascript:void(0)" data-file="Date">Date</a>
+        <a href="javascript:void(0)" data-file="Math">Math</a>
+        <a href="javascript:void(0)" data-file="RegExp">RegExp</a>
+        <a href="javascript:void(0)" data-file="Set" class="es6">Set</a>
+        <a href="javascript:void(0)" data-file="Map" class="es6">Map</a>
+        <a href="javascript:void(0)" data-file="Promise" class="es6">Promise</a>
+        <a href="javascript:void(0)" data-file="_global">_global</a>
+    </nav>
+    <section></section>
+
+
+<script type="text/html" id="tableTemp">
+    <div class="main">
+        {{each table value index}}
+        <table class="ui-table">
+            <caption>{{value.caption}}</caption>
+            <tr>
+                <th style="width:40px;"></th>
+                <th style="width:200px;text-align:left;">{{value.name}}</th>
+                <th>des</th>
+                <th style="width:70px;">ie</th>
+            </tr>
+            {{each value.list el i}}
+            <tr data-group={{el[0]}}>
+                {{if el[3] == "non"}}<td class="state">&#9888;</td>
+                    {{else if el[3] == "obsolete"}}<td class="state">&#9762;</td>
+                    {{else if el[3] == "exp"}}<td class="state">&#65533;</td>
+                    {{else}}<td class="state"></td>
+                {{/if}}
+                <td><code class="{{el[3]}} {{el[4]}}">{{el[1]}}</code></td>
+                <td class="des">{{el[2]}}</td>
+                {{if el[5]=="no"}}<td class="ie">&#10006;</td>
+                    {{else if el[5]}}<td class="ie">ie{{el[5]}}+</td>
+                    {{else}}<td class="ie">-</td>
+                {{/if}}
+
+            </tr>
+            {{/each}}
+        </table>
+        {{/each}}
+    </div>
+</script>
+
+<script type="text/html" id="homeTemp">
+    <div class="home">
+        <strong>ECMAScript</strong>
+        <span>简要文档</span>
+    </div>
+</script>
+<script type="text/javascript" src="js/jquery2.1.4.js"></script>
+<script type="text/javascript" src="js/arttemplate.js"></script>
+<script src="js/prism.js"></script>
+<script type="text/javascript">
+
+    var hash=window.location.hash;
+    if(hash){
+        var file=hash.replace('#','');
+        if( $('a[data-file="'+file+'"]').length == 0) {
+            sectionIndex();
+        }
+        else{
+            $('a[data-file="'+file+'"]').addClass('on');
+            section(file);
+        }
+    }else{
+        sectionIndex();
+    }
+
+    $('nav').on('click','h1 > a',function(){
+        $('nav a').removeClass('on');
+        sectionIndex();
+    });
+
+    $('nav').on('click','> a',function(){
+        var $a = $(this);
+        $('nav a').removeClass('on');
+        $a.addClass('on');
+        
+        var file = $a.data('file');
+        window.location.hash = file;
+
+        section(file);
+        
+    });
+
+    function sectionIndex(){
+        var $el = $('section');
+        $el.html('');
+        window.location.hash = '';
+        var html=template('homeTemp',{});
+        $el.html(html);
+    }
+
+    function section(file){
+        var $el = $('section');
+
+        $el.html('');
+
+        $.ajax({
+            url:'data/json/'+file+'.json',
+            dataType:'json',
+            success:function(data){
+
+                var html=template('tableTemp',data);
+                $el.html(html);
+
+                if(data.group){
+                    for(var key in data.group){
+                        var $tr=$('tr[data-group="'+key+'"]');
+                        if($tr.length){
+                            var top = $tr.first().offset().top;
+                            var bottom = $tr.last().offset().top;
+                            var height=bottom-top+$tr.height();
+                            var $group=$('<div class="ui-group"><span>'+data.group[key]+'</span></div>');
+                            $group.css({'top':top+1,'height':height+1});
+                            $el.append($group);
+                        }
+                    }
+                }
+            },
+            error:function(){
+                $el.html('<p>文件读取错误</p>');
+            }
+        });
+    }
+
+        
+</script>
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+
+.ui-table{
+    width:100%;margin-bottom:35px;
+    background:#fff;
+}
+.ui-table caption{
+    padding:5px 0;
+    line-height:24px;font-size:16px;font-weight:bold;font-family:"Arail";
+    text-align:left;
+    text-transform: uppercase;
+}
+/*.ui-table tr{transition:all ease-out .3s;}*/
+.ui-table tr:first-child{background:#f1f1f1;}
+/*.ui-table tr:hover{background:#f1f1f1;}*/
+.ui-table td,.ui-table th{
+    padding:5px 10px;
+    line-height:24px;
+    border:1px solid #ddd;
+}
+.ui-table th{
+    font-weight:bold;
+}
+.ui-table th > code{
+    font-family:"consolas";
+    color:#333;font-weight:bold;
+}
+.ui-table td.col,
+.ui-table td.ie{text-align:center;}
+.ui-table td.col{background:#fff;}
+
+.ui-table td.state{
+    text-align:center;
+    color:#333;
+}
+.ui-table td.des{font-size:12px;}
+
+.ui-table td > code{
+    font-family: "Consolas";
+    color:#333;font-weight:bold;
+}
+
+
+.ui-table td > code.es6{
+    color:#259;
+}
+.ui-table td > code.obsolete{
+    text-decoration: line-through;
+}
+.ui-table td > code.non{
+    color:#999;
+}
+
+
+.ui-group{
+    position:absolute;width:20px;left:50px;
+    /*writing-mode: tb-rl;*/
+    border-top:1px dashed #999;
+    border-bottom:1px dashed #999;
+}
+.ui-group:last-child{
+    
+}
+.ui-group span{
+    position:absolute;top:50%;left:50%;
+    width:70px;margin-left:-35px;
+    line-height:30px;margin-top:-15px;
+    text-align:center;color:#999;
+    background:#fff;
+}
+.ui-group:before{
+    position:absolute;top:0;left:50%;bottom:0;
+    content: '';
+    width:1px;
+    border-left:1px dashed #999;
+}
